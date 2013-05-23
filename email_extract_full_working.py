@@ -13,6 +13,7 @@ else:
     print("File not found.")
     raise SystemExit
 # regular expressions
+# (r'([\w+][\S]+@+\S+\w+)') - original
 r1 = re.compile(r'([\w+][\S]+@+\S+\w+)')
 results1 = r1.findall(bulkemails)
 emails = ""

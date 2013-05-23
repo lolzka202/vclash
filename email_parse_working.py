@@ -5,7 +5,7 @@ import os
 import re
 
 # vars for filenames (rename the location of files with email entry)
-filename = 'C:\Users\User\Desktop\Export CSV Files\email_entry.txt'
+filename = 'C:\Users\User\Desktop\Export CSV Files\email_entry1.txt'
 newfilename = 'C:\Users\User\Desktop\Export CSV Files\emaillist-rev.txt'
 
 # read file
@@ -19,7 +19,12 @@ else:
 # regex = whoEver@wHerever.xxx
 # use the email python expression --> (r'([\w+][\S]+@+\S+\w+)') <--- to be fully work
 # original expression applied ---> (r'(\b[\w.]+@+[\w.]+.+[\w.]\b)')
-r = re.compile(r'([\w+][\S]+@+\S+\w+)')
+
+# ('^(?P<name>[A-Za-z ]+)<(?P<email>[^ ]+@[^.]+\.[\w.]+)>$') - not working
+# source: http://stackoverflow.com/questions/8116441/validate-name-surname-emailexample-com-using-regex-in-python-django
+# re-encoded regex --> (r'([A-Za-z ]+)<([\w+][\S]+@+\S+\w+)>') from email_extract_test.py
+
+r = re.compile(r'([A-Za-z ]+)<([\w+][\S]+@+\S+\w+)>')
 results = r.findall(bulkemails)
 
 emails = ""
