@@ -23,6 +23,10 @@ else:
 # ('^(?P<name>[A-Za-z ]+)<(?P<email>[^ ]+@[^.]+\.[\w.]+)>$') - not working
 # source: http://stackoverflow.com/questions/8116441/validate-name-surname-emailexample-com-using-regex-in-python-django
 # re-encoded regex --> (r'([A-Za-z ]+)<([\w+][\S]+@+\S+\w+)>') from email_extract_test.py
+# another working regex ---> <([\w\.=-]+@[\w\.-]+\.[\w]{2,3})>
+
+# Pattern title --> ([A-Za-z ]+)<([\w\.=-]+@[\w\.-]+\.[\w]{2,10})>
+# Matches	a@a.com | a@a.com.au | a@a.au // Non-Matches	word | word@ | @word
 
 r = re.compile(r'([A-Za-z ]+)<([\w+][\S]+@+\S+\w+)>')
 results = r.findall(bulkemails)
