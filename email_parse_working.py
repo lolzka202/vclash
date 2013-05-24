@@ -16,7 +16,6 @@ else:
     print "File not found."
     raise SystemExit
 
-# regex = whoEver@wHerever.xxx
 # use the email python expression --> (r'([\w+][\S]+@+\S+\w+)') <--- to be fully work
 # original expression applied ---> (r'(\b[\w.]+@+[\w.]+.+[\w.]\b)')
 
